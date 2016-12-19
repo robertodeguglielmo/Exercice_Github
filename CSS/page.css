@@ -1,0 +1,104 @@
+.header{
+	background-color: rgb(242,242,242);
+	background-image: url("../images/logo-ATC.png");
+	background-repeat: no-repeat;
+	background-position: right;
+		border: 1px solid #d4d4d4;
+	border-radius: 5px;
+	text-align: center;
+	/*height: 100px;*/
+
+}
+
+.header li {
+ list-style-type: none;
+ display: inline-block;
+ }
+
+ .header ul {
+ text-align: center;
+ border-color: rgb(223,102,47);
+ }
+
+
+section{
+	margin-top:10px;
+	margin-right: 310px;
+	background-color: rgb(242,242,242);
+	border: 1px solid #d4d4d4;
+	border-radius: 5px;
+}
+
+
+ .aside{
+ 	right:7px;
+ 	top:175px;
+ 	width: 300px;
+ 	bottom: 55px;
+ 	position: fixed;
+ 	background-color: rgb(242,242,242);
+ 	border: 1px solid #d4d4d4;
+	border-radius: 5px;
+ }
+
+ footer{
+    border: 1px solid #d4d4d4; 
+    background-color: #f1f1f1; 
+    text-align: center; 
+    padding: 10px; 
+    font-size: 70%; 
+    line-height: 14px;
+    margin-top: 10px;
+    border: 1px solid #d4d4d4;
+	border-radius: 5px;
+}
+
+h1{
+	color: rgb(223,102,47)
+}
+
+h2{
+	color:rgb(255,255,255);
+	text-align: center;
+	background-color: rgb(223,102,47);
+}
+
+
+.TBHOUV {
+	border: 1px solid #d4d4d4;
+}
+.TitreTB{
+	color:rgb(255,255,255);
+	text-align: center;
+	background-color: rgb(223,102,47);
+}
+.CellGrise{
+	background-color: rgb(125,125,125)	;
+	text-align: center;
+
+}
+.TBHOUV td {
+	
+	width: 50px;
+	
+}
+.rouge{
+	color: red;
+}
+.bleu{
+	color:blue;
+}
+table {
+ border-width:1px; 
+ border-style:solid; 
+ border-color:black;
+ 
+ }
+td,th { 
+ border-width:1px;
+ border-style:solid; 
+ border-color:black;
+ }
+
+tr:nth-child(even) {background: #CCC;color:blue;}
+tr:nth-child(odd) {background: #FFF;color: red;}

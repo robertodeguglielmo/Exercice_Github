@@ -1,17 +1,13 @@
-<?php
-	require_once('haut.php');
-	require_once('aside.php');
-?>
 
 	<section>
 		<h2>Nous contacter</h2>
 		<article>
 			<h3>Formulaire de contact</h3>
 			<p>
-				<form action="http://10.128.138.70/formulaire/test.php" method="post" accept-charset="utf-8">
+				<form action="../control/form_recept.php" method="post" accept-charset="utf-8">
 					<p> 
 						*Nom :  </br>
-						<input type="text" name="NOM" value="" placeholder="Nom, Prénom" size="50" required>
+						<input type="text" name="NOM" value="" placeholder="Nom, Prénom" size="50">
 					</p>
 					<p> *Email : </br>
 						<input type="email" name="EMAIL" value="" placeholder="Email@monfournisseur.com" size="50" required>
@@ -134,7 +130,3 @@
 
 	</article>		
 </section>
-
-<?php
-	require_once('bas.php');
-?>

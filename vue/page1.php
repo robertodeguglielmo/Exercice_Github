@@ -1,10 +1,6 @@
-<?php
-	require_once('haut.php');
-	require_once('aside.php');
-?>
+
 	<section>
-		
-		<h2>Nos formations</h2>
+		<h2 class="testclass_h2">Nos formations</h2>
 		<article>
 			<h3>Agent valoriste</h3>
 			<p>
@@ -13,7 +9,7 @@
 				Pour favoriser la démarche d’insertion socio-professionnelle, cette formation poursuit le but de développer l’acquisition de savoir-faire pouvant déboucher sur une poursuite d’une formation qualifiante.
 
 				En particulier, cette formation s’oriente vers la restauration de mobilier et les apprentissages des gestes de base dans ce domaine d’activité.
-			</p>
+			</p> 
 		</article>
 
 		<article>
@@ -22,10 +18,12 @@
 				Le bachelier en Informatique de gestion est un collaborateur polyvalent qui met en oeuvre la diversité méthodologique des différentes fonctions de l’informaticien en réponse aux besoins des organisations.
 
 				Il participe à l’analyse et à l’étude technique de projets d’informatisation:
-				<ul>
+
+
+
+			</p>
+							<ul>
 					<li>
-
-
 						Il participe à la conception, développe, teste et implémente des solutions intégrant des standards techniques et méthodologiques ainsi que des progiciels existants.
 					</li>
 					<li>
@@ -48,24 +46,19 @@
 					</li>
 				</ul>
 
-
-			</p>
-
-		</article>
+		</article>		
 	</section>
 	<section>
 		<h2>La vie à l'école</h2>
 		<article>
 			<h3>Décès Abbé Vanderus</h3>
-			<img src="images/vanderus.jpg" alt="">
-			<p>
+			
+					<img src="../vue/images/vanderus.jpg" alt="">
+			<p> 
 				Notre Président de PO a tiré sa révérence en ce début de mois de juillet. <br>
 
-				Natif de Charleroi, l'Abbé Jacques Vanderus était un Aumônier du travail passionné par l'enseignement et la gestion des écoles. Après avoir enseigné quelques années, il devint directeur du Collège Technique des ATC. Il cumula ainsi la gestion d'écoles organisant des enseignements de plein exercice et de promotion sociale, de niveaux secondaires et supérieurs.
+				Natif de Charleroi, l'Abbé Jacques Vanderus était un Aumônier du travail passionné par l'enseignement et la gestion des écoles. Après avoir enseigné quelques années, il devint directeur du Collège Technique des ATC. Il cumula ainsi la gestion d'écoles organisant des enseignements de plein exercice et de promotion sociale, de niveaux secondaires et supérieurs. 
 			</p>
 
 		</article>
 	</section>
-<?php
-	require_once('bas.php');
-?>

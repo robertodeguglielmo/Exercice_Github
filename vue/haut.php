@@ -13,13 +13,12 @@
 			Collège Technique "Aumôniers du Travail" <br>
 			Enseignement de Promotion Sociale<br>
 		</H1>
-		<?php if(isset($_SESSION['NOM'])){ echo 'Bonjour Mr. '.$_SESSION['NOM'];} ?>
-		<ul>
-			<li><a href="../control/page1.php" >Acceuil</a></li>
-			<li><a href="../control/page2.php" >Contact</a></li>
-			<li><a href="../control/destroy.php" >Logout</a></li>
-			<li><a href="../control/employees_tab.php" >Employés</a></li>
-			<li><a href="../control/customers_tab.php" >Clients</a></li>
-		</ul>
-		
+		<?php 
+		if(isset($_SESSION['NOM'])){ 
+			echo 'Bonjour Mr. '.$_SESSION['NOM'];
+		} 
+		if (Control::user_connected()){
+			require_once('../vue/menu.php');
+		}
+		?>
 	</header>

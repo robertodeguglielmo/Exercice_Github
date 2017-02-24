@@ -49,7 +49,7 @@ class Model{
 		}
 		else{
 			$sql= 'SELECT '.$fields.' from '.$this->table .'  where ';
-			$sql.= $this->PK[0] .'='. $this->id[0];
+			$sql.= $this->PK[0] .'='. $this->connection->quote($this->id[0]);
 		}
 		
 		try {

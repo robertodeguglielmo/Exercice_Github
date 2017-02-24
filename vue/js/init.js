@@ -36,7 +36,6 @@ var maFonctionImage = function(event){
 
 
 $(function(){
-	$('p').on('click', maFonction);
 	$('H2').on('click', maFonctionH2);
 	$('img').wrap("<div class=\"box\"><a class=\"button\" href=\"#popup1\"></a></div>");
 	$('img').on('click', maFonctionImage);

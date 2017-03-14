@@ -6,6 +6,8 @@ class Model{
 	protected  	$table ;	
 	protected  	$id= array() ; 
 	protected  	$PK= array(); 
+	protected  	$Rech= array(); 
+	
 	public    	$data ;
 	
 	function __construct() {
@@ -38,19 +40,43 @@ class Model{
 		return new $name($name);
 	}
 	
-	public function read($fields=null,$where=null){
+	public function read($fields=null,$pRech=null){
 		
 		if($fields==null){
 			$fields = '*';
 		}
+
+		if($pRech==null){
+			if (count($this->id) == 0){
+				$sql= 'SELECT '.$fields.' from '.$this->table ;
+			}
+			else{
+				$sql= 'SELECT '.$fields.' from '.$this->table .'  where ';
+				$sql.= $this->PK[0] .'='. $this->connection->quote($this->id[0]);
+			}	
+		}else{
+			$where="";
+			$i=0;
+			while($i<count($this->Rech)){
+				if ($i==0) {
+					$where="upper(concat(";
+				}else{
+					$where.=" , '|' , ";
+				}
+				$where.=$this->Rech[$i];			
+				$i++;
+			}
+
+			if ($where!=""){
+				$where.=" )) like upper(".$this->connection->quote("%".$pRech."%").") ";
+				$sql= 'SELECT '.$fields.' from '.$this->table.' where '.$where ;	
+			}else{
+				$sql= 'SELECT '.$fields.' from '.$this->table ;
+			}
+			
+		}
 		
-		if (count($this->id) == 0){
-			$sql= 'SELECT '.$fields.' from '.$this->table ;
-		}
-		else{
-			$sql= 'SELECT '.$fields.' from '.$this->table .'  where ';
-			$sql.= $this->PK[0] .'='. $this->connection->quote($this->id[0]);
-		}
+		
 		
 		try {
 		  // On envois la requète

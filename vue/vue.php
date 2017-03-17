@@ -1,7 +1,7 @@
 <?php 
 
 class Vue{
-	public static function rtv_Table($pParam,$pNom){
+	public static function rtv_Table($pParam,$pNom=''){
 		$out  = "";
 		$titre= '<tr>';
 		$titre_trt= false;
@@ -38,7 +38,7 @@ class Vue{
 		$out = '<table>'.$out.'</table>';
 		return $out;
 	}
-	
+
 	public static  function Rtv_Zone_rech($pAction,$pNom,$pRechVal,$pPlaceHolder){
 		$ValRetour = '<section>';
 		$ValRetour .= '<article>';

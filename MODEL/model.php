@@ -67,34 +67,32 @@ class Model{
 				$i++;
 			}
 
-			if ($where!=""){
-				$where.=" )) like upper(".$this->connection->quote("%".$pRech."%").") ";
-				$sql= 'SELECT '.$fields.' from '.$this->table.' where '.$where ;	
-			}else{
-				$sql= 'SELECT '.$fields.' from '.$this->table ;
-			}
-			
-		}
-		
-		
-		
-		try {
-		  // On envois la requète
-			$select = $this->connection->query($sql);
-			
-		  // On indique que nous utiliserons les résultats en tant qu'objet
-			$select->setFetchMode(PDO::FETCH_OBJ);
-			$this->data = new stdClass();
-			$this->data = $select->fetchAll();
+			if($where!=''){
+				$where.=' )) like upper('.$this->connection->quote('%'.$pRech.'%').') ';
+$sql= 'SELECT '.$fields.' from '.$this->table.' where '.$where ;	
+}else{
+	$sql= 'SELECT '.$fields.' from '.$this->table ;
+}
 
-		} catch ( Exception $e ) {
-			echo 'Une erreur est survenue lors de la récupération des créateurs';
-		}
-		
+}
+
+
+
+try {
+				  // On envois la requète
+	$select = $this->connection->query($sql);
+	if($select==false){
+		echo 'Erreur lors de l\' exécution de la requète : '.$sql;
+	}else{
+				  // On indique que nous utiliserons les résultats en tant qu'objet
+		$select->setFetchMode(PDO::FETCH_OBJ);
+		$this->data = new stdClass();
+		$this->data = $select->fetchAll();
 	}
-	
-	
+} catch ( PDOException $e ) {
+	echo 'Erreur lors de l\' exécution de la requète : '.$sql.'==========='.$e->getMessage(); ;
+}
 
-
+}
 }
 ?>

@@ -43,7 +43,7 @@ class Vue{
 		$ValRetour = '<section>';
 		$ValRetour .= '<article>';
 		$ValRetour .= '<form action="'.$pAction.'" method="post" accept-charset="utf-8">';
-		$ValRetour .= '<input type="text" name="'.$pNom.'" value="'.$pRechVal.'" placeholder="'.$pPlaceHolder.'">';
+		$ValRetour .= '<input class = "RECH" type="text" name="'.$pNom.'" value="'.$pRechVal.'" placeholder="'.$pPlaceHolder.'">';
 		$ValRetour .= '<input type="submit" name="" value="Rechercher">';
 		$ValRetour .= '</form>';
 		$ValRetour .= '</article>';

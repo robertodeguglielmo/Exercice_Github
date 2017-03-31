@@ -20,16 +20,14 @@ class Model{
 
 
 		  // Options de connection
-			$options = array(
-				PDO::MYSQL_ATTR_INIT_COMMAND    => "SET NAMES utf8"
-				);
+			$options = array(PDO::MYSQL_ATTR_INIT_COMMAND    => "SET NAMES utf8");
 
 		  // Initialisation de la connection
 			$this->connection = new PDO( $dns, $utilisateur, $motDePasse, $options );
 
 
 		} catch ( Exception $e ) {
-			echo "Connection à MySQL impossible : ", $e->getMessage();
+			echo "Connection à MySQL impossible : ". $e->getMessage();
 			die();
 		}
 		
@@ -58,41 +56,38 @@ class Model{
 			$where="";
 			$i=0;
 			while($i<count($this->Rech)){
-				if ($i==0) {
+				if ($i==0){
 					$where="upper(concat(";
 				}else{
 					$where.=" , '|' , ";
 				}
-				$where.=$this->Rech[$i];			
+				$where.=' coalesce('.$this->Rech[$i].' , \'\' )';			
 				$i++;
 			}
-
 			if($where!=''){
 				$where.=' )) like upper('.$this->connection->quote('%'.$pRech.'%').') ';
-$sql= 'SELECT '.$fields.' from '.$this->table.' where '.$where ;	
-}else{
-	$sql= 'SELECT '.$fields.' from '.$this->table ;
-}
+				$sql= 'SELECT '.$fields.' from '.$this->table.' where '.$where ;	
+			}else{
+				$sql= 'SELECT '.$fields.' from '.$this->table ;
+			}
 
-}
+		}
 
+		try{
+			// On envois la requète
+			$select = $this->connection->query($sql);
+			if($select==false){
+				echo 'Erreur lors de l\' exécution de la requète : '.$sql;
+			}else{
+				// On indique que nous utiliserons les résultats en tant qu'objet
+				$select->setFetchMode(PDO::FETCH_OBJ);
+				$this->data = new stdClass();
+				$this->data = $select->fetchAll();
+			}
+		}catch(PDOException $e ) {
+			echo 'Erreur lors de l\' exécution de la requète : '.$sql.'==========='.$e->getMessage(); ;
+		}
 
-
-try {
-				  // On envois la requète
-	$select = $this->connection->query($sql);
-	if($select==false){
-		echo 'Erreur lors de l\' exécution de la requète : '.$sql;
-	}else{
-				  // On indique que nous utiliserons les résultats en tant qu'objet
-		$select->setFetchMode(PDO::FETCH_OBJ);
-		$this->data = new stdClass();
-		$this->data = $select->fetchAll();
 	}
-} catch ( PDOException $e ) {
-	echo 'Erreur lors de l\' exécution de la requète : '.$sql.'==========='.$e->getMessage(); ;
-}
-
-}
 }
 ?>

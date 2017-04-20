@@ -1,6 +1,3 @@
-<section>
-	<article>
-	<?php echo Vue::rtv_table($employees);	 ?>
-	</article>
-</section>
+
+<?php echo Vue::rtv_table($employees,"ZONE_RECH_EMPLOYEES");	 ?>
 	

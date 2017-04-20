@@ -41,7 +41,7 @@ class Model{
 	}
 	
 	public function read($fields=null,$pRech=null){
-		
+
 		if($fields==null){
 			$fields = '*';
 		}

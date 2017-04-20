@@ -2,7 +2,7 @@
 	require_once('../control/core.php');
 	
 	if(!(isset($rech))){
-		$rech="";
+		$rech='';
 	}
 
 

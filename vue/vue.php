@@ -1,25 +1,33 @@
 <?php 
 
 class Vue{
-	public static function rtv_Table($pParam,$pNom=''){
+	public static function rtv_Table($pParam,$pNom='', $pColID='', $pAction= ''){
 		$out  = "";
 		$titre= '<tr>';
 		$titre_trt= false;
 
 		foreach($pParam->data as $key => $element){
 			$out .= "<tr>";
+			$colForm = '';
 			foreach($element as $subkey => $subelement){
 				if($titre_trt==false){
 					$titre .= '<th>'.$subkey.'</th>' ;	
 				}
-
+				if ($pColID != '' && $pAction != '' && $subkey == $pColID){
+					$colForm .= '<form action="'.$pAction.'" method="post" accept-charset="utf-8">';
+					$colForm .= '<input type="hidden" name="RECH_FIC" value="'.$subelement.'" >';
+					$colForm .= '<input type="submit" name="" value="Voir">';
+					$colForm .= '</form>';
+					$colForm = '<td>'.$colForm.'</td>';
+				}
 				$out .= '<td>'.$subelement.'</td>' ;
+
 			}
 			if($titre_trt==false){
 				$titre.= '</tr>';
 			}
 			$titre_trt= true;
-			$out .= "</tr>";
+			$out .= $colForm."</tr>";
 		}
 		$out = '<section ID="RESULT_'.$pNom.'"><article><table>'.$titre.$out.'</table></article></section>';
 		return $out;

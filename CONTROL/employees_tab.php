@@ -1,13 +1,13 @@
 <?php
 	require_once('../control/core.php');
 	
-	$rech = "";
+	
 
 	require_once('../vue/haut.php');
 	require_once('../vue/aside.php');
 		
 
-	
+	$rech = "";
 	if(isset($_POST['ZONE_RECH_EMPLOYEES'])){
 		$rech =$_POST['ZONE_RECH_EMPLOYEES'];
 	}

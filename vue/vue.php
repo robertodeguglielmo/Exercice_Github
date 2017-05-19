@@ -7,7 +7,7 @@ class Vue{
 		$titre_trt= false;
 
 		foreach($pParam->data as $key => $element){
-			$out .= "<tr>";
+			$out .= '<tr class="RECH_FORM">';
 			$colForm = '';
 			foreach($element as $subkey => $subelement){
 				if($titre_trt==false){
@@ -18,7 +18,7 @@ class Vue{
 					$colForm .= '<input type="hidden" name="RECH_FIC" value="'.$subelement.'" >';
 					$colForm .= '<input type="submit" name="" value="Voir">';
 					$colForm .= '</form>';
-					$colForm = '<td>'.$colForm.'</td>';
+					$colForm = '<td name="td_form">'.$colForm.'</td>';
 				}
 				$out .= '<td>'.$subelement.'</td>' ;
 

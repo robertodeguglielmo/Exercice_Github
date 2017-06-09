@@ -124,6 +124,14 @@ tr:nth-child(odd) {background: #FFF;color: red;}
   padding: 20px;
   background: #fff;
   border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
   width: 30%;
   position: relative;
   transition: all 5s ease-in-out;
@@ -141,14 +149,11 @@ tr:nth-child(odd) {background: #FFF;color: red;}
   transition: all 200ms;
   font-size: 30px;
   font-weight: bold;
-  text-decoration: none;
-  color: #333;
-}
-.popup .close:hover {
-  color: #06D85F;
-}
-.popup .content {
-  max-height: 30%;
   overflow: auto;
 }
 
+.FormFiche{
+    display: block;
+    width: 150px;
+    float: left;
+}

@@ -33,17 +33,17 @@ class Vue{
 		return $out;
 	}
 	
-	public static function rtv_Fiche($pParam){
-		$out  = "";
+	public static function rtv_Fiche($pParam,$pAction="",$pPK=""){
+		$out = '<form method="post" action="'.$pAction.'">';
+		$out .= '<input type="hidden" name="FormFiche" value="1">';
+		$out .= '<input type="hidden" name="FormModeAjax" value="0">';
 		foreach($pParam->data as $key => $element){
 			foreach($element as $subkey => $subelement){
-				$out .= "<tr>";
-				$out .= '<th>'.$subkey.'</th>' ;
-				$out .= '<td>'.$subelement.'</td>' ;
-				$out .= "</tr>";
+				$out .= '<p><label for="'.$subkey.'" class="FormFiche">'.$subkey.'</label> : <input type="text" name="'.$subkey.'"  value="'.$subelement.'" /></p>';
 			}
 		}
-		$out = '<table>'.$out.'</table>';
+		$out .= '<input type="submit" name="" value="Valider">';
+		$out .= '</form>';
 		return $out;
 	}
 

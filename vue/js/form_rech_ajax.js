@@ -1,5 +1,5 @@
 var visuPopup = function(event){
-	/* Je récupère l'élément sur lequl j'ai cliqué*/
+	/* Je récupère l'élément sur lequel j'ai cliqué*/
 	var elem=$( this );
 
 	/*Je récupère l'ID ainsi que l'ACTION du formulaire */

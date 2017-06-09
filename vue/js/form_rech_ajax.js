@@ -1,3 +1,63 @@
+var createAllErrors = function() 
+{
+	var form = $( this );
+	var errorList = $( "ul.errorMessages", form );
+
+	errorList.remove();
+	form.prepend('<ul class="errorMessages"></ul>');
+	errorList = $( "ul.errorMessages", form );
+
+	//Gestion des messages d'erreurs liés au type de champ HTML
+	var showAllErrorMessages = function() 
+	{
+
+		errorList.empty();
+        // Find all invalid fields within the form.
+        var invalidFields = form.find( ":invalid" ).each(function( index, node ) 
+        {
+                // Find the field's corresponding label
+                var label = $( "label[for='" + node.id + "'] ");
+                var zonelib ='';
+                if($(label).length>0){
+                	zonelib =label.html();
+                }else{
+                	zonelib =node.placeholder+' : ';
+                }
+
+                var message = node.validationMessage || 'Invalid value.';
+                errorList.show().append( "<li><span>" + zonelib+ "  </span> " + message + "</li>" );
+
+        });
+    };
+
+	// Envoi du formulaire à sa destination + fermeture du popup + rafraichissement des informations affichées
+	form.on( "submit", function( event ) {
+		if ( this.checkValidity && !this.checkValidity() ) {
+			$( this ).find( ":invalid" ).first().focus();
+		}else{
+			$.post( form.attr("action"), form.serialize())
+  			.done(function( data ) {
+    				$('#popup1').remove();
+    				$( '.RECH' ).keyup();
+
+  					}
+  				)
+  		;
+		}
+		event.preventDefault();
+		
+	});
+
+	$( "input[type=submit], button:not([type=button])", form ).on( "click", showAllErrorMessages);
+
+	$( "input", form ).on( "keypress", function( event ) {
+		var type = $( this ).attr( "type" );
+		if ( /date|email|month|number|search|tel|text|time|url|week/.test ( type ) && event.keyCode == 13 ) {
+			showAllErrorMessages();
+		}
+	});
+};
+
 var visuPopup = function(event){
 	/* Je récupère l'élément sur lequel j'ai cliqué*/
 	var elem=$( this );
@@ -21,8 +81,11 @@ var visuPopup = function(event){
 							</div>\
 						</div>";
 			$('body'	).append(monHTML);
+			$('#popup1').visible()
 			$('#popup1').css("visibility","visible");
 			$('#popup1').css("opacity","1");
+
+			$('#popup1 form').each(createAllErrors);
 
 			$('.close'	).on('click',function(event) {
 				$('#popup1').remove();
@@ -33,6 +96,4 @@ var visuPopup = function(event){
 
 };
 
-$( '.RECH_FORM' ).each(function(index) {
-    $(this).on("click", visuPopup);
-});
+$( 'body' ).delegate('.RECH_FORM',"click", visuPopup);

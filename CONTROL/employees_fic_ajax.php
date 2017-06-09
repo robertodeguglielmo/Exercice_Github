@@ -8,8 +8,10 @@
 		}
 		$_POST['RECH_FIC']=$_POST['#'];
 	}
-	$employees->id[0]=$_POST['RECH_FIC'];
-	$employees->read('employeeID "#", Title "Titre", LastName "Nom" , FirstName "Prénom" , Notes "Note" ');
-	echo vue::rtv_fiche($employees,"../control/employees_fic.php","#");
- ?>
 	
+	if(!(isset($_POST['FormModeAjax']) && $_POST['FormModeAjax'] == "1")){
+		$employees->id[0]=$_POST['RECH_FIC'];
+		$employees->read('employeeID "#", Title "Titre", LastName "Nom" , FirstName "Prénom" , Notes "Note" ');
+		echo vue::rtv_fiche($employees,"../control/employees_fic.php","#");
+	}
+ ?>

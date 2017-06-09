@@ -15,4 +15,5 @@ var AjaxRech = function()
 
 };
 
-$( '.RECH' ).on("keyup", AjaxRech );
+
+$( "body" ).delegate( ".RECH", "keyup", AjaxRech);

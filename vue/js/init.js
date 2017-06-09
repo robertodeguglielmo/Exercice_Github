@@ -39,7 +39,6 @@ $(function(){
 	$('H2').on('click', maFonctionH2);
 	$('img').wrap("<div class=\"box\"><a class=\"button\" href=\"#popup1\"></a></div>");
 	$('img').on('click', maFonctionImage);
-	$('img').on('click', maFonctionImage);
 	$('input[name="FormModeAjax"]').attr("value" ,"1");
 	<?php require_once('../vue/js/rech.js')?>
 	<?php require_once('../vue/js/form_rech_ajax.js')?>
@@ -47,16 +46,6 @@ $(function(){
 
 </script>
 
-
-<?php
-
-/*require( '../vue/js/popup.js');*/
-if (isset($GLOBALS['tb_require'])){
-	foreach($GLOBALS['tb_require'] as $key => $element){
-		require $element;
-	};
-};
-?>
 
 
 

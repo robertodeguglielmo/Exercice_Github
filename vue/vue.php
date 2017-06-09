@@ -43,7 +43,8 @@ class Vue{
 				if($subkey==$pPK){
 					$varReadOnly="readonly";
 				}
-				$out .= '<p><label for="'.$subkey.'" class="FormFiche">'.$subkey.'</label> : <input type="text" name="'.$subkey.'"  value="'.$subelement.'" '.$varReadOnly.' /></p>';
+				$out .= '<p><label for="'.$subkey.'" class="FormFiche">'.$subkey.'</label> : ';
+				$out .= '<input type="text" name="'.$subkey.'"  value="'.$subelement.'" '.$varReadOnly.' /></p>';
 			}
 		}
 		$out .= '<input type="submit" name="" value="Valider">';

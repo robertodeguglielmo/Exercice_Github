@@ -10,6 +10,6 @@
 	}
 	$employees->id[0]=$_POST['RECH_FIC'];
 	$employees->read('employeeID "#", Title "Titre", LastName "Nom" , FirstName "Prénom" , Notes "Note" ');
-	echo vue::rtv_fiche($employees,"../control/employees_fic.php");
+	echo vue::rtv_fiche($employees,"../control/employees_fic.php","#");
  ?>
 	

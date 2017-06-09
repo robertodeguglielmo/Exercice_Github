@@ -39,7 +39,11 @@ class Vue{
 		$out .= '<input type="hidden" name="FormModeAjax" value="0">';
 		foreach($pParam->data as $key => $element){
 			foreach($element as $subkey => $subelement){
-				$out .= '<p><label for="'.$subkey.'" class="FormFiche">'.$subkey.'</label> : <input type="text" name="'.$subkey.'"  value="'.$subelement.'" /></p>';
+				$varReadOnly="";
+				if($subkey==$pPK){
+					$varReadOnly="readonly";
+				}
+				$out .= '<p><label for="'.$subkey.'" class="FormFiche">'.$subkey.'</label> : <input type="text" name="'.$subkey.'"  value="'.$subelement.'" '.$varReadOnly.' /></p>';
 			}
 		}
 		$out .= '<input type="submit" name="" value="Valider">';

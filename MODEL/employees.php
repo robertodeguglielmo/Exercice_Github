@@ -16,6 +16,29 @@ class employees extends Model{
 		$sql.=" where ".$this->PK[0]." =  ".$this->connection->quote($pTB["#"]); 
 		return $this->connection->query($sql);
 	}
+
+	public function insert($pTB){
+		$valRetour=false;
+
+		$sql= " insert into ".$this->table;
+		$sql.=" (Title, LastName, FirstName, Notes ) ";
+		$sql.=" values ( ";
+		$sql.=" 	".$this->connection->quote($pTB["Titre"	]);
+		$sql.=" 	,".$this->connection->quote($pTB["Nom" 		]);
+		$sql.=" 	,".$this->connection->quote($pTB["Prénom" 	]);
+		$sql.=" 	,".$this->connection->quote($pTB["Note"		]); 
+		$sql.=" ) ";
+
+		$valRetour=$this->connection->query($sql);
+
+		if($valRetour==true){
+			$this->id[0]=$this->connection->lastInsertId();
+		}else{
+			$this->id[0]="";
+		}
+
+		return $valRetour;
+	}
 }
 
 ?>

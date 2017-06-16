@@ -3,6 +3,13 @@
 class Vue{
 	public static function rtv_Table($pParam,$pNom='', $pColID='', $pAction= ''){
 		$out  = "";
+		$formNouveau="";
+
+		$formNouveau .= '<form action="'.$pAction.'" method="post" accept-charset="utf-8">';
+		$formNouveau .= '<input type="hidden" name="FormFicheAjout" value="1" >';
+		$formNouveau .= '<input type="submit" name="" value="Nouveau">';
+		$formNouveau .= '</form>';
+
 		$titre= '<tr>';
 		$titre_trt= false;
 
@@ -29,14 +36,15 @@ class Vue{
 			$titre_trt= true;
 			$out .= $colForm."</tr>";
 		}
-		$out = '<section ID="RESULT_'.$pNom.'"><article><table>'.$titre.$out.'</table></article></section>';
+		$out = '<section ID="RESULT_'.$pNom.'"><article>'.$formNouveau.'<table>'.$titre.$out.'</table></article></section>';
 		return $out;
 	}
 	
-	public static function rtv_Fiche($pParam,$pAction="",$pPK=""){
+	public static function rtv_Fiche($pParam,$pAction="",$pPK="",$pMode="MODIF"){
 		$out = '<form method="post" action="'.$pAction.'">';
 		$out .= '<input type="hidden" name="FormFiche" value="1">';
 		$out .= '<input type="hidden" name="FormModeAjax" value="0">';
+		$out .= '<input type="hidden" name="MODE" value="'.$pMode.'">';
 		foreach($pParam->data as $key => $element){
 			foreach($element as $subkey => $subelement){
 				$varReadOnly="";

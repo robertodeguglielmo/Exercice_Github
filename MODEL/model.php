@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class Model{
 	protected  	$connection;
 	protected  	$dbMapArray;
@@ -16,7 +16,8 @@ class Model{
 			$this->schema = 'northwind';
 			$dns = 'mysql:host=127.0.0.1;dbname='.$this->schema;
 			$utilisateur = "root";
-			$motDePasse = '';
+//			$motDePasse = '';
+			$motDePasse = 'AWSEBDBPassword';
 
 
 		  // Options de connection
